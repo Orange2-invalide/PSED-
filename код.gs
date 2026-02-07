@@ -1,5 +1,5 @@
 const WEBHOOK = "https://discord.com/api/webhooks/1469647368621391913/Enz4RWQbIyr9Xvmroi2vPsqD_jU52Nize7d_HQLwZdSrCcHateDG577wZ0uGq9oIw9D6";
-const SHEET_ID = "сюда_ID_таблицы";
+const SHEET_ID = "1Uio02r-l23au8HclHr7VnUwa0bdXzUBRwSvy2JWInmk";
 
 function doGet() {
   return HtmlService.createHtmlOutputFromFile('Index')
