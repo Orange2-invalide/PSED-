@@ -6,415 +6,400 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-*, *::before, *::after {
-  margin: 0; padding: 0; box-sizing: border-box;
-}
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
 
 body {
-  font-family: 'Inter', sans-serif;
-  min-height: 100vh;
-  background: linear-gradient(135deg, #0f0c29 0%, #302b63 40%, #24243e 100%);
-  overflow-x: hidden;
-  position: relative;
+  font-family:'Inter',sans-serif;
+  min-height:100vh;
+  background:linear-gradient(135deg,#0f0c29 0%,#302b63 40%,#24243e 100%);
+  overflow-x:hidden; position:relative;
 }
 
 body::before, body::after {
-  content: '';
-  position: fixed;
-  border-radius: 50%;
-  filter: blur(120px);
-  opacity: 0.4;
-  z-index: 0;
-  animation: floatBlob 12s ease-in-out infinite alternate;
+  content:''; position:fixed; border-radius:50%;
+  filter:blur(120px); opacity:0.4; z-index:0;
+  animation:floatBlob 12s ease-in-out infinite alternate;
 }
-
 body::before {
-  width: 600px; height: 600px;
-  background: radial-gradient(circle, #7c3aed, #3b82f6);
-  top: -150px; right: -100px;
+  width:600px; height:600px;
+  background:radial-gradient(circle,#7c3aed,#3b82f6);
+  top:-150px; right:-100px;
 }
-
 body::after {
-  width: 500px; height: 500px;
-  background: radial-gradient(circle, #ec4899, #8b5cf6);
-  bottom: -100px; left: -100px;
-  animation-delay: 3s;
+  width:500px; height:500px;
+  background:radial-gradient(circle,#ec4899,#8b5cf6);
+  bottom:-100px; left:-100px; animation-delay:3s;
 }
 
 @keyframes floatBlob {
-  0%   { transform: translate(0, 0) scale(1); }
-  50%  { transform: translate(40px, -30px) scale(1.1); }
-  100% { transform: translate(-20px, 20px) scale(0.95); }
+  0%   { transform:translate(0,0) scale(1); }
+  50%  { transform:translate(40px,-30px) scale(1.1); }
+  100% { transform:translate(-20px,20px) scale(0.95); }
 }
 
 .particles {
-  position: fixed; top: 0; left: 0;
-  width: 100%; height: 100%;
-  pointer-events: none; z-index: 0; overflow: hidden;
+  position:fixed; top:0; left:0;
+  width:100%; height:100%;
+  pointer-events:none; z-index:0; overflow:hidden;
 }
-
 .particle {
-  position: absolute;
-  width: 4px; height: 4px;
-  background: rgba(255,255,255,0.3);
-  border-radius: 50%;
-  animation: rise linear infinite;
+  position:absolute; width:4px; height:4px;
+  background:rgba(255,255,255,0.3);
+  border-radius:50%; animation:rise linear infinite;
 }
-
 @keyframes rise {
-  0%   { transform: translateY(100vh) scale(0); opacity: 0; }
-  10%  { opacity: 1; }
-  90%  { opacity: 1; }
-  100% { transform: translateY(-10vh) scale(1); opacity: 0; }
+  0%   { transform:translateY(100vh) scale(0); opacity:0; }
+  10%  { opacity:1; }
+  90%  { opacity:1; }
+  100% { transform:translateY(-10vh) scale(1); opacity:0; }
 }
 
 .container {
-  position: relative; z-index: 1;
-  width: 100%; max-width: 860px;
-  margin: 40px auto;
-  padding: 35px 40px 40px;
-  background: rgba(255, 255, 255, 0.06);
-  backdrop-filter: blur(24px) saturate(180%);
-  -webkit-backdrop-filter: blur(24px) saturate(180%);
-  border-radius: 24px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 0 8px 32px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.1);
-  color: #e2e8f0;
+  position:relative; z-index:1;
+  width:100%; max-width:880px;
+  margin:40px auto; padding:35px 40px 40px;
+  background:rgba(255,255,255,0.06);
+  backdrop-filter:blur(24px) saturate(180%);
+  -webkit-backdrop-filter:blur(24px) saturate(180%);
+  border-radius:24px;
+  border:1px solid rgba(255,255,255,0.12);
+  box-shadow:0 8px 32px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.1);
+  color:#e2e8f0;
 }
 
-.header { text-align: center; margin-bottom: 30px; }
-
+.header { text-align:center; margin-bottom:30px; }
 .header-icon {
-  display: inline-flex; align-items: center; justify-content: center;
-  width: 64px; height: 64px; border-radius: 18px;
-  background: linear-gradient(135deg, #7c3aed, #3b82f6);
-  margin-bottom: 14px;
-  box-shadow: 0 4px 20px rgba(124, 58, 237, 0.4);
+  display:inline-flex; align-items:center; justify-content:center;
+  width:64px; height:64px; border-radius:18px;
+  background:linear-gradient(135deg,#7c3aed,#3b82f6);
+  margin-bottom:14px; box-shadow:0 4px 20px rgba(124,58,237,0.4);
 }
-
 .header-icon svg {
-  width: 32px; height: 32px; fill: none; stroke: white;
-  stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+  width:32px; height:32px; fill:none; stroke:white;
+  stroke-width:2; stroke-linecap:round; stroke-linejoin:round;
 }
-
 h2 {
-  font-size: 26px; font-weight: 800;
-  background: linear-gradient(135deg, #c4b5fd, #93c5fd);
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-  background-clip: text; letter-spacing: -0.5px;
+  font-size:26px; font-weight:800;
+  background:linear-gradient(135deg,#c4b5fd,#93c5fd);
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+  background-clip:text; letter-spacing:-0.5px;
 }
-
-.subtitle { color: rgba(255,255,255,0.45); font-size: 14px; margin-top: 4px; }
+.subtitle { color:rgba(255,255,255,0.45); font-size:14px; margin-top:4px; }
 
 .req-banner {
-  background: rgba(99, 102, 241, 0.12);
-  border: 1px solid rgba(99, 102, 241, 0.25);
-  border-radius: 14px; padding: 18px 22px; margin-bottom: 28px;
+  background:rgba(99,102,241,0.12);
+  border:1px solid rgba(99,102,241,0.25);
+  border-radius:14px; padding:18px 22px; margin-bottom:28px;
 }
-
 .req-title {
-  display: flex; align-items: center; gap: 8px;
-  font-weight: 700; font-size: 15px; color: #a5b4fc; margin-bottom: 10px;
+  display:flex; align-items:center; gap:8px;
+  font-weight:700; font-size:15px; color:#a5b4fc; margin-bottom:10px;
 }
-
 .req-title svg {
-  width: 18px; height: 18px; stroke: #a5b4fc; fill: none;
-  stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+  width:18px; height:18px; stroke:#a5b4fc; fill:none;
+  stroke-width:2; stroke-linecap:round; stroke-linejoin:round;
 }
-
-.req-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 20px; }
-
+.req-grid { display:grid; grid-template-columns:1fr 1fr; gap:6px 20px; }
 .req-item {
-  display: flex; align-items: center; gap: 6px;
-  font-size: 13px; color: rgba(255,255,255,0.6);
+  display:flex; align-items:center; gap:6px;
+  font-size:13px; color:rgba(255,255,255,0.6);
 }
-
 .req-dot {
-  width: 6px; height: 6px; border-radius: 50%;
-  background: #818cf8; flex-shrink: 0;
+  width:6px; height:6px; border-radius:50%;
+  background:#818cf8; flex-shrink:0;
 }
 
 .block {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.07);
-  border-radius: 16px; padding: 20px 22px;
-  margin-bottom: 16px; transition: background 0.3s;
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.07);
+  border-radius:16px; padding:20px 22px;
+  margin-bottom:16px; transition:background 0.3s;
 }
-
-.block:hover { background: rgba(255, 255, 255, 0.07); }
+.block:hover { background:rgba(255,255,255,0.07); }
 
 .block-title {
-  display: flex; align-items: center; gap: 10px;
-  font-size: 16px; font-weight: 700; margin-bottom: 14px; color: #e2e8f0;
+  display:flex; align-items:center; gap:10px;
+  font-size:16px; font-weight:700; margin-bottom:14px; color:#e2e8f0;
 }
-
 .block-title .icon-circle {
-  display: inline-flex; align-items: center; justify-content: center;
-  width: 34px; height: 34px; border-radius: 10px; flex-shrink: 0;
+  display:inline-flex; align-items:center; justify-content:center;
+  width:34px; height:34px; border-radius:10px; flex-shrink:0;
 }
-
 .block-title .icon-circle svg {
-  width: 18px; height: 18px; stroke: white; fill: none;
-  stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+  width:18px; height:18px; stroke:white; fill:none;
+  stroke-width:2; stroke-linecap:round; stroke-linejoin:round;
 }
 
-.icon-blue   { background: linear-gradient(135deg, #3b82f6, #2563eb); }
-.icon-green  { background: linear-gradient(135deg, #10b981, #059669); }
-.icon-red    { background: linear-gradient(135deg, #ef4444, #dc2626); }
-.icon-purple { background: linear-gradient(135deg, #8b5cf6, #7c3aed); }
-.icon-amber  { background: linear-gradient(135deg, #f59e0b, #d97706); }
-.icon-pink   { background: linear-gradient(135deg, #ec4899, #db2777); }
+.icon-blue   { background:linear-gradient(135deg,#3b82f6,#2563eb); }
+.icon-green  { background:linear-gradient(135deg,#10b981,#059669); }
+.icon-red    { background:linear-gradient(135deg,#ef4444,#dc2626); }
+.icon-purple { background:linear-gradient(135deg,#8b5cf6,#7c3aed); }
+.icon-amber  { background:linear-gradient(135deg,#f59e0b,#d97706); }
+.icon-pink   { background:linear-gradient(135deg,#ec4899,#db2777); }
+.icon-cyan   { background:linear-gradient(135deg,#06b6d4,#0891b2); }
+.icon-lime   { background:linear-gradient(135deg,#84cc16,#65a30d); }
 
-.info-grid {
-  display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px;
-}
+.info-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px; }
 
-.field-group { display: flex; flex-direction: column; gap: 5px; }
-
+.field-group { display:flex; flex-direction:column; gap:5px; }
 .field-group label {
-  font-size: 12px; font-weight: 600;
-  color: rgba(255,255,255,0.45);
-  text-transform: uppercase; letter-spacing: 0.5px;
+  font-size:12px; font-weight:600;
+  color:rgba(255,255,255,0.45);
+  text-transform:uppercase; letter-spacing:0.5px;
 }
-
 .field-group input {
-  background: rgba(255, 255, 255, 0.07);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 10px; padding: 10px 14px;
-  color: #e2e8f0; font-size: 14px;
-  font-family: 'Inter', sans-serif;
-  outline: none; transition: all 0.25s;
+  background:rgba(255,255,255,0.07);
+  border:1px solid rgba(255,255,255,0.1);
+  border-radius:10px; padding:10px 14px;
+  color:#e2e8f0; font-size:14px;
+  font-family:'Inter',sans-serif;
+  outline:none; transition:all 0.25s;
 }
-
 .field-group input:focus {
-  border-color: rgba(139, 92, 246, 0.6);
-  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.15);
-  background: rgba(255, 255, 255, 0.1);
+  border-color:rgba(139,92,246,0.6);
+  box-shadow:0 0 0 3px rgba(139,92,246,0.15);
+  background:rgba(255,255,255,0.1);
 }
-
 .discord-hint {
-  font-size: 11px; color: rgba(255,255,255,0.3); margin-top: 2px;
+  font-size:11px; color:rgba(255,255,255,0.3); margin-top:2px;
 }
 
-.score-row {
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.04);
+/* ─── SCORE ITEM (card per row) ─── */
+.score-item {
+  background:rgba(255,255,255,0.03);
+  border:1px solid rgba(255,255,255,0.05);
+  border-radius:12px;
+  padding:12px 16px;
+  margin-bottom:8px;
+  transition:background 0.2s;
+}
+.score-item:last-child { margin-bottom:0; }
+.score-item:hover { background:rgba(255,255,255,0.06); }
+
+.score-top {
+  display:flex; align-items:center; justify-content:space-between;
+  margin-bottom:8px;
 }
 
-.score-row:last-child { border-bottom: none; }
-
-.score-label { font-size: 14px; color: rgba(255,255,255,0.7); }
-
+.score-label { font-size:14px; color:rgba(255,255,255,0.7); }
 .score-label .pts {
-  display: inline-block; background: rgba(255,255,255,0.08);
-  border-radius: 6px; padding: 2px 7px;
-  font-size: 11px; font-weight: 600;
-  color: rgba(255,255,255,0.4); margin-left: 6px;
+  display:inline-block; background:rgba(255,255,255,0.08);
+  border-radius:6px; padding:2px 7px;
+  font-size:11px; font-weight:600;
+  color:rgba(255,255,255,0.4); margin-left:6px;
 }
 
-.score-row input[type="number"] {
-  width: 80px; background: rgba(255, 255, 255, 0.07);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 10px; padding: 8px 12px;
-  color: #e2e8f0; font-size: 14px;
-  font-family: 'Inter', sans-serif; text-align: center;
-  outline: none; transition: all 0.25s;
-  -moz-appearance: textfield;
+.score-item input[type="number"] {
+  width:80px; background:rgba(255,255,255,0.07);
+  border:1px solid rgba(255,255,255,0.1);
+  border-radius:10px; padding:8px 12px;
+  color:#e2e8f0; font-size:14px;
+  font-family:'Inter',sans-serif; text-align:center;
+  outline:none; transition:all 0.25s;
+  -moz-appearance:textfield;
+}
+.score-item input[type="number"]::-webkit-inner-spin-button,
+.score-item input[type="number"]::-webkit-outer-spin-button { opacity:0.5; }
+.score-item input[type="number"]:focus {
+  border-color:rgba(139,92,246,0.6);
+  box-shadow:0 0 0 3px rgba(139,92,246,0.15);
+  background:rgba(255,255,255,0.1);
 }
 
-.score-row input[type="number"]::-webkit-inner-spin-button,
-.score-row input[type="number"]::-webkit-outer-spin-button { opacity: 0.5; }
-
-.score-row input[type="number"]:focus {
-  border-color: rgba(139, 92, 246, 0.6);
-  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.15);
-  background: rgba(255, 255, 255, 0.1);
+.proof-inline {
+  display:flex; align-items:center; gap:8px;
+}
+.proof-inline .link-icon {
+  display:inline-flex; align-items:center; justify-content:center;
+  width:24px; height:24px; border-radius:6px;
+  background:rgba(99,102,241,0.12); flex-shrink:0;
+}
+.proof-inline .link-icon svg {
+  width:12px; height:12px; stroke:#818cf8; fill:none;
+  stroke-width:2; stroke-linecap:round; stroke-linejoin:round;
+}
+.proof-inline input[type="url"] {
+  flex:1;
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.06);
+  border-radius:8px; padding:7px 12px;
+  color:#a5b4fc; font-size:12px;
+  font-family:'Inter',sans-serif;
+  outline:none; transition:all 0.25s;
+}
+.proof-inline input[type="url"]::placeholder {
+  color:rgba(255,255,255,0.2); font-size:12px;
+}
+.proof-inline input[type="url"]:focus {
+  border-color:rgba(99,102,241,0.4);
+  box-shadow:0 0 0 2px rgba(99,102,241,0.1);
+  background:rgba(255,255,255,0.07);
 }
 
-.extra-row { display: flex; align-items: center; gap: 14px; }
-
-.extra-row label {
-  font-size: 14px; color: rgba(255,255,255,0.7); white-space: nowrap;
+.extra-item {
+  background:rgba(255,255,255,0.03);
+  border:1px solid rgba(255,255,255,0.05);
+  border-radius:12px; padding:12px 16px;
 }
-
-.extra-row input {
-  flex: 1; max-width: 140px;
-  background: rgba(255, 255, 255, 0.07);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 10px; padding: 10px 14px;
-  color: #e2e8f0; font-size: 14px;
-  font-family: 'Inter', sans-serif; text-align: center;
-  outline: none; transition: all 0.25s;
+.extra-top {
+  display:flex; align-items:center; gap:14px;
+  margin-bottom:8px;
 }
-
-.extra-row input:focus {
-  border-color: rgba(139, 92, 246, 0.6);
-  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.15);
+.extra-top label {
+  font-size:14px; color:rgba(255,255,255,0.7); white-space:nowrap;
+}
+.extra-top input {
+  width:120px;
+  background:rgba(255,255,255,0.07);
+  border:1px solid rgba(255,255,255,0.1);
+  border-radius:10px; padding:8px 14px;
+  color:#e2e8f0; font-size:14px;
+  font-family:'Inter',sans-serif; text-align:center;
+  outline:none; transition:all 0.25s;
+}
+.extra-top input:focus {
+  border-color:rgba(139,92,246,0.6);
+  box-shadow:0 0 0 3px rgba(139,92,246,0.15);
 }
 
 .progress-section {
-  margin-top: 16px;
-  display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+  margin-top:16px;
+  display:grid; grid-template-columns:1fr 1fr; gap:10px;
 }
-
 .progress-item {
-  background: rgba(255,255,255,0.03);
-  border-radius: 10px; padding: 10px 14px;
+  background:rgba(255,255,255,0.03);
+  border-radius:10px; padding:10px 14px;
 }
-
 .progress-header {
-  display: flex; justify-content: space-between;
-  font-size: 12px; font-weight: 600; margin-bottom: 6px;
+  display:flex; justify-content:space-between;
+  font-size:12px; font-weight:600; margin-bottom:6px;
 }
-
-.progress-name { color: rgba(255,255,255,0.5); }
-.progress-val  { color: rgba(255,255,255,0.7); }
-
+.progress-name { color:rgba(255,255,255,0.5); }
+.progress-val  { color:rgba(255,255,255,0.7); }
 .progress-bar-bg {
-  width: 100%; height: 6px;
-  background: rgba(255,255,255,0.08);
-  border-radius: 3px; overflow: hidden;
+  width:100%; height:6px;
+  background:rgba(255,255,255,0.08);
+  border-radius:3px; overflow:hidden;
 }
-
 .progress-bar-fill {
-  height: 100%; border-radius: 3px;
-  transition: width 0.4s ease, background 0.4s ease;
+  height:100%; border-radius:3px;
+  transition:width 0.4s ease, background 0.4s ease;
 }
-
-.progress-bar-fill.ok  { background: linear-gradient(90deg, #10b981, #34d399); }
-.progress-bar-fill.bad { background: linear-gradient(90deg, #ef4444, #f87171); }
-.progress-bar-fill.mid { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
+.progress-bar-fill.ok  { background:linear-gradient(90deg,#10b981,#34d399); }
+.progress-bar-fill.bad { background:linear-gradient(90deg,#ef4444,#f87171); }
+.progress-bar-fill.mid { background:linear-gradient(90deg,#f59e0b,#fbbf24); }
 
 .total-card {
-  background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(139, 92, 246, 0.15));
-  border: 1px solid rgba(139, 92, 246, 0.3);
-  border-radius: 18px; padding: 24px 28px;
-  margin: 24px 0 0;
-  display: flex; align-items: center; justify-content: space-between;
-  gap: 20px; flex-wrap: wrap;
+  background:linear-gradient(135deg,rgba(99,102,241,0.2),rgba(139,92,246,0.15));
+  border:1px solid rgba(139,92,246,0.3);
+  border-radius:18px; padding:24px 28px;
+  margin:24px 0 0;
+  display:flex; align-items:center; justify-content:space-between;
+  gap:20px; flex-wrap:wrap;
 }
-
-.total-left { display: flex; flex-direction: column; gap: 2px; }
-
+.total-left { display:flex; flex-direction:column; gap:2px; }
 .total-label {
-  font-size: 13px; font-weight: 600;
-  text-transform: uppercase; letter-spacing: 1px;
-  color: rgba(255,255,255,0.4);
+  font-size:13px; font-weight:600;
+  text-transform:uppercase; letter-spacing:1px;
+  color:rgba(255,255,255,0.4);
 }
-
 .total-value {
-  font-size: 42px; font-weight: 800;
-  background: linear-gradient(135deg, #c4b5fd, #60a5fa);
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-  background-clip: text; line-height: 1.1;
+  font-size:42px; font-weight:800;
+  background:linear-gradient(135deg,#c4b5fd,#60a5fa);
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+  background-clip:text; line-height:1.1;
 }
 
 .norm-badge {
-  display: inline-flex; align-items: center; gap: 8px;
-  padding: 10px 20px; border-radius: 50px;
-  font-size: 15px; font-weight: 700; transition: all 0.3s;
+  display:inline-flex; align-items:center; gap:8px;
+  padding:10px 20px; border-radius:50px;
+  font-size:15px; font-weight:700; transition:all 0.3s;
 }
-
 .norm-badge svg {
-  width: 20px; height: 20px; stroke-width: 2.5;
-  stroke-linecap: round; stroke-linejoin: round; fill: none;
+  width:20px; height:20px; stroke-width:2.5;
+  stroke-linecap:round; stroke-linejoin:round; fill:none;
 }
-
 .norm-ok {
-  background: rgba(16, 185, 129, 0.15);
-  border: 1px solid rgba(16, 185, 129, 0.4); color: #34d399;
+  background:rgba(16,185,129,0.15);
+  border:1px solid rgba(16,185,129,0.4); color:#34d399;
 }
-.norm-ok svg { stroke: #34d399; }
-
+.norm-ok svg { stroke:#34d399; }
 .norm-bad {
-  background: rgba(239, 68, 68, 0.15);
-  border: 1px solid rgba(239, 68, 68, 0.4); color: #f87171;
+  background:rgba(239,68,68,0.15);
+  border:1px solid rgba(239,68,68,0.4); color:#f87171;
 }
-.norm-bad svg { stroke: #f87171; }
-
+.norm-bad svg { stroke:#f87171; }
 .norm-none {
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.35);
+  background:rgba(255,255,255,0.06);
+  border:1px solid rgba(255,255,255,0.1); color:rgba(255,255,255,0.35);
 }
-.norm-none svg { stroke: rgba(255,255,255,0.35); }
+.norm-none svg { stroke:rgba(255,255,255,0.35); }
 
 .btn-submit {
-  margin-top: 20px; width: 100%; padding: 16px;
-  font-size: 16px; font-weight: 700;
-  font-family: 'Inter', sans-serif; letter-spacing: 0.3px;
-  background: linear-gradient(135deg, #7c3aed, #3b82f6);
-  color: white; border: none; border-radius: 14px;
-  cursor: pointer;
-  display: flex; align-items: center; justify-content: center; gap: 10px;
-  transition: all 0.3s;
-  box-shadow: 0 4px 20px rgba(124, 58, 237, 0.35);
-  position: relative; overflow: hidden;
+  margin-top:20px; width:100%; padding:16px;
+  font-size:16px; font-weight:700;
+  font-family:'Inter',sans-serif; letter-spacing:0.3px;
+  background:linear-gradient(135deg,#7c3aed,#3b82f6);
+  color:white; border:none; border-radius:14px;
+  cursor:pointer;
+  display:flex; align-items:center; justify-content:center; gap:10px;
+  transition:all 0.3s;
+  box-shadow:0 4px 20px rgba(124,58,237,0.35);
+  position:relative; overflow:hidden;
 }
-
 .btn-submit::before {
-  content: ''; position: absolute; top: 0; left: -100%;
-  width: 100%; height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
-  transition: left 0.5s;
+  content:''; position:absolute; top:0; left:-100%;
+  width:100%; height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,0.15),transparent);
+  transition:left 0.5s;
 }
-
-.btn-submit:hover::before { left: 100%; }
-
+.btn-submit:hover::before { left:100%; }
 .btn-submit:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 30px rgba(124, 58, 237, 0.5);
+  transform:translateY(-2px);
+  box-shadow:0 8px 30px rgba(124,58,237,0.5);
 }
-
-.btn-submit:active { transform: translateY(0); }
-
+.btn-submit:active { transform:translateY(0); }
 .btn-submit svg {
-  width: 20px; height: 20px; stroke: white; fill: none;
-  stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+  width:20px; height:20px; stroke:white; fill:none;
+  stroke-width:2; stroke-linecap:round; stroke-linejoin:round;
 }
-
 .btn-submit:disabled {
-  opacity: 0.6; cursor: not-allowed; transform: none !important;
+  opacity:0.6; cursor:not-allowed; transform:none !important;
 }
 
 .spinner {
-  width: 20px; height: 20px;
-  border: 3px solid rgba(255,255,255,0.3);
-  border-top-color: white; border-radius: 50%;
-  animation: spin 0.7s linear infinite; display: none;
+  width:20px; height:20px;
+  border:3px solid rgba(255,255,255,0.3);
+  border-top-color:white; border-radius:50%;
+  animation:spin 0.7s linear infinite; display:none;
 }
-
-@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes spin { to { transform:rotate(360deg); } }
 
 .toast {
-  position: fixed; bottom: 30px; left: 50%;
-  transform: translateX(-50%) translateY(100px);
-  padding: 14px 28px; border-radius: 14px;
-  font-size: 14px; font-weight: 600; z-index: 9999;
-  backdrop-filter: blur(20px);
-  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.4s;
-  opacity: 0;
-  display: flex; align-items: center; gap: 8px;
+  position:fixed; bottom:30px; left:50%;
+  transform:translateX(-50%) translateY(100px);
+  padding:14px 28px; border-radius:14px;
+  font-size:14px; font-weight:600; z-index:9999;
+  backdrop-filter:blur(20px);
+  transition:transform 0.4s cubic-bezier(0.34,1.56,0.64,1), opacity 0.4s;
+  opacity:0; display:flex; align-items:center; gap:8px;
 }
-
-.toast.show {
-  transform: translateX(-50%) translateY(0); opacity: 1;
-}
-
+.toast.show { transform:translateX(-50%) translateY(0); opacity:1; }
 .toast-success {
-  background: rgba(16, 185, 129, 0.2);
-  border: 1px solid rgba(16, 185, 129, 0.4); color: #34d399;
+  background:rgba(16,185,129,0.2);
+  border:1px solid rgba(16,185,129,0.4); color:#34d399;
 }
-
 .toast-error {
-  background: rgba(239, 68, 68, 0.2);
-  border: 1px solid rgba(239, 68, 68, 0.4); color: #f87171;
+  background:rgba(239,68,68,0.2);
+  border:1px solid rgba(239,68,68,0.4); color:#f87171;
 }
 
-@media (max-width: 700px) {
-  .container { margin: 16px; padding: 20px 18px; }
-  .info-grid { grid-template-columns: 1fr; }
-  .total-card { flex-direction: column; text-align: center; }
-  .req-grid, .progress-section { grid-template-columns: 1fr; }
+@media (max-width:700px) {
+  .container { margin:16px; padding:20px 18px; }
+  .info-grid { grid-template-columns:1fr; }
+  .total-card { flex-direction:column; text-align:center; }
+  .req-grid, .progress-section { grid-template-columns:1fr; }
+  .score-top { flex-wrap:wrap; gap:8px; }
 }
 </style>
 </head>
@@ -434,7 +419,7 @@ h2 {
       </svg>
     </div>
     <h2>Недельный отчёт PSED</h2>
-    <div class="subtitle">Заполните все поля и отправьте отчёт</div>
+    <div class="subtitle">Заполните данные и прикрепите доказательства к каждому пункту</div>
   </div>
 
   <!-- REQUIREMENTS -->
@@ -455,14 +440,11 @@ h2 {
     </div>
   </div>
 
-  <!-- PERSONAL INFO — 3 поля: Имя, Статик, Discord ID -->
+  <!-- PERSONAL INFO -->
   <div class="block">
     <div class="block-title">
       <span class="icon-circle icon-blue">
-        <svg viewBox="0 0 24 24">
-          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-          <circle cx="12" cy="7" r="4"/>
-        </svg>
+        <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
       </span>
       Личные данные
     </div>
@@ -487,21 +469,31 @@ h2 {
   <div class="block">
     <div class="block-title">
       <span class="icon-circle icon-green">
-        <svg viewBox="0 0 24 24">
-          <rect x="3" y="3" width="18" height="18" rx="3"/>
-          <line x1="12" y1="8" x2="12" y2="16"/>
-          <line x1="8" y1="12" x2="16" y2="12"/>
-        </svg>
+        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
       </span>
       Выдача таблеток
     </div>
-    <div class="score-row">
-      <span class="score-label">ELSH <span class="pts">×1</span></span>
-      <input id="t1" type="number" value="0" min="0" oninput="clampAndCalc(this)">
+
+    <div class="score-item">
+      <div class="score-top">
+        <span class="score-label">ELSH <span class="pts">×1</span></span>
+        <input id="t1" type="number" value="0" min="0" oninput="clampAndCalc(this)">
+      </div>
+      <div class="proof-inline">
+        <span class="link-icon"><svg viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></span>
+        <input id="proof_t1" type="url" placeholder="Ссылка на доказательство">
+      </div>
     </div>
-    <div class="score-row">
-      <span class="score-label">Sandy <span class="pts">×2</span></span>
-      <input id="t2" type="number" value="0" min="0" oninput="clampAndCalc(this)">
+
+    <div class="score-item">
+      <div class="score-top">
+        <span class="score-label">Sandy <span class="pts">×2</span></span>
+        <input id="t2" type="number" value="0" min="0" oninput="clampAndCalc(this)">
+      </div>
+      <div class="proof-inline">
+        <span class="link-icon"><svg viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></span>
+        <input id="proof_t2" type="url" placeholder="Ссылка на доказательство">
+      </div>
     </div>
   </div>
 
@@ -509,19 +501,31 @@ h2 {
   <div class="block">
     <div class="block-title">
       <span class="icon-circle icon-red">
-        <svg viewBox="0 0 24 24">
-          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-        </svg>
+        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
       </span>
       Вакцинация
     </div>
-    <div class="score-row">
-      <span class="score-label">ELSH <span class="pts">×2</span></span>
-      <input id="v1" type="number" value="0" min="0" oninput="clampAndCalc(this)">
+
+    <div class="score-item">
+      <div class="score-top">
+        <span class="score-label">ELSH <span class="pts">×2</span></span>
+        <input id="v1" type="number" value="0" min="0" oninput="clampAndCalc(this)">
+      </div>
+      <div class="proof-inline">
+        <span class="link-icon"><svg viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></span>
+        <input id="proof_v1" type="url" placeholder="Ссылка на доказательство">
+      </div>
     </div>
-    <div class="score-row">
-      <span class="score-label">Sandy <span class="pts">×4</span></span>
-      <input id="v2" type="number" value="0" min="0" oninput="clampAndCalc(this)">
+
+    <div class="score-item">
+      <div class="score-top">
+        <span class="score-label">Sandy <span class="pts">×4</span></span>
+        <input id="v2" type="number" value="0" min="0" oninput="clampAndCalc(this)">
+      </div>
+      <div class="proof-inline">
+        <span class="link-icon"><svg viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></span>
+        <input id="proof_v2" type="url" placeholder="Ссылка на доказательство">
+      </div>
     </div>
   </div>
 
@@ -529,63 +533,169 @@ h2 {
   <div class="block">
     <div class="block-title">
       <span class="icon-circle icon-amber">
-        <svg viewBox="0 0 24 24">
-          <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
-        </svg>
+        <svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
       </span>
       ПМП
     </div>
-    <div class="score-row">
-      <span class="score-label">День <span class="pts">×3</span></span>
-      <input id="p1" type="number" value="0" min="0" oninput="clampAndCalc(this)">
+
+    <div class="score-item">
+      <div class="score-top">
+        <span class="score-label">День <span class="pts">×3</span></span>
+        <input id="p1" type="number" value="0" min="0" oninput="clampAndCalc(this)">
+      </div>
+      <div class="proof-inline">
+        <span class="link-icon"><svg viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></span>
+        <input id="proof_p1" type="url" placeholder="Ссылка на доказательство">
+      </div>
     </div>
-    <div class="score-row">
-      <span class="score-label">Ночь <span class="pts">×5</span></span>
-      <input id="p2" type="number" value="0" min="0" oninput="clampAndCalc(this)">
+
+    <div class="score-item">
+      <div class="score-top">
+        <span class="score-label">Ночь <span class="pts">×5</span></span>
+        <input id="p2" type="number" value="0" min="0" oninput="clampAndCalc(this)">
+      </div>
+      <div class="proof-inline">
+        <span class="link-icon"><svg viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></span>
+        <input id="proof_p2" type="url" placeholder="Ссылка на доказательство">
+      </div>
     </div>
   </div>
 
-  <!-- PSED -->
+  <!-- SPRAVKI -->
   <div class="block">
     <div class="block-title">
       <span class="icon-circle icon-purple">
-        <svg viewBox="0 0 24 24">
-          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
-        </svg>
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
       </span>
-      PSED
+      Справки
     </div>
-    <div class="score-row">
-      <span class="score-label">Справки ELSH <span class="pts">×4</span></span>
-      <input id="s1" type="number" value="0" min="0" oninput="clampAndCalc(this)">
+
+    <div class="score-item">
+      <div class="score-top">
+        <span class="score-label">Справки ELSH <span class="pts">×4</span></span>
+        <input id="s1" type="number" value="0" min="0" oninput="clampAndCalc(this)">
+      </div>
+      <div class="proof-inline">
+        <span class="link-icon"><svg viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></span>
+        <input id="proof_s1" type="url" placeholder="Ссылка на доказательство">
+      </div>
     </div>
-    <div class="score-row">
-      <span class="score-label">Справки Sandy <span class="pts">×5</span></span>
-      <input id="s2" type="number" value="0" min="0" oninput="clampAndCalc(this)">
+
+    <div class="score-item">
+      <div class="score-top">
+        <span class="score-label">Справки Sandy <span class="pts">×5</span></span>
+        <input id="s2" type="number" value="0" min="0" oninput="clampAndCalc(this)">
+      </div>
+      <div class="proof-inline">
+        <span class="link-icon"><svg viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></span>
+        <input id="proof_s2" type="url" placeholder="Ссылка на доказательство">
+      </div>
     </div>
-    <div class="score-row">
-      <span class="score-label">Психолог <span class="pts">×60</span></span>
-      <input id="psy" type="number" value="0" min="0" oninput="clampAndCalc(this)">
+  </div>
+
+  <!-- PSYCHOLOGIST -->
+  <div class="block">
+    <div class="block-title">
+      <span class="icon-circle icon-pink">
+        <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+      </span>
+      Психолог
     </div>
-    <div class="score-row">
-      <span class="score-label">Дежурство ELSH <span class="pts">×40</span></span>
-      <input id="d1" type="number" value="0" min="0" oninput="clampAndCalc(this)">
+
+    <div class="score-item">
+      <div class="score-top">
+        <span class="score-label">Приём психолога <span class="pts">×60</span></span>
+        <input id="psy" type="number" value="0" min="0" oninput="clampAndCalc(this)">
+      </div>
+      <div class="proof-inline">
+        <span class="link-icon"><svg viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></span>
+        <input id="proof_psy" type="url" placeholder="Ссылка на доказательство">
+      </div>
     </div>
-    <div class="score-row">
-      <span class="score-label">Дежурство Sandy <span class="pts">×52</span></span>
-      <input id="d2" type="number" value="0" min="0" oninput="clampAndCalc(this)">
+  </div>
+
+  <!-- DUTY -->
+  <div class="block">
+    <div class="block-title">
+      <span class="icon-circle icon-amber">
+        <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      </span>
+      Дежурство
     </div>
-    <div class="score-row">
-      <span class="score-label">Участие проверка <span class="pts">×50</span></span>
-      <input id="c1" type="number" value="0" min="0" oninput="clampAndCalc(this)">
+
+    <div class="score-item">
+      <div class="score-top">
+        <span class="score-label">Дежурство ELSH <span class="pts">×40</span></span>
+        <input id="d1" type="number" value="0" min="0" oninput="clampAndCalc(this)">
+      </div>
+      <div class="proof-inline">
+        <span class="link-icon"><svg viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></span>
+        <input id="proof_d1" type="url" placeholder="Ссылка на доказательство">
+      </div>
     </div>
-    <div class="score-row">
-      <span class="score-label">Проведение проверка <span class="pts">×100</span></span>
-      <input id="c2" type="number" value="0" min="0" oninput="clampAndCalc(this)">
+
+    <div class="score-item">
+      <div class="score-top">
+        <span class="score-label">Дежурство Sandy <span class="pts">×52</span></span>
+        <input id="d2" type="number" value="0" min="0" oninput="clampAndCalc(this)">
+      </div>
+      <div class="proof-inline">
+        <span class="link-icon"><svg viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></span>
+        <input id="proof_d2" type="url" placeholder="Ссылка на доказательство">
+      </div>
     </div>
-    <div class="score-row">
-      <span class="score-label">Гос волна <span class="pts">×30</span></span>
-      <input id="wave" type="number" value="0" min="0" oninput="clampAndCalc(this)">
+  </div>
+
+  <!-- CHECKS -->
+  <div class="block">
+    <div class="block-title">
+      <span class="icon-circle icon-cyan">
+        <svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+      </span>
+      Проверки
+    </div>
+
+    <div class="score-item">
+      <div class="score-top">
+        <span class="score-label">Участие проверка <span class="pts">×50</span></span>
+        <input id="c1" type="number" value="0" min="0" oninput="clampAndCalc(this)">
+      </div>
+      <div class="proof-inline">
+        <span class="link-icon"><svg viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></span>
+        <input id="proof_c1" type="url" placeholder="Ссылка на доказательство">
+      </div>
+    </div>
+
+    <div class="score-item">
+      <div class="score-top">
+        <span class="score-label">Проведение проверка <span class="pts">×100</span></span>
+        <input id="c2" type="number" value="0" min="0" oninput="clampAndCalc(this)">
+      </div>
+      <div class="proof-inline">
+        <span class="link-icon"><svg viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></span>
+        <input id="proof_c2" type="url" placeholder="Ссылка на доказательство">
+      </div>
+    </div>
+  </div>
+
+  <!-- GOV WAVE -->
+  <div class="block">
+    <div class="block-title">
+      <span class="icon-circle icon-lime">
+        <svg viewBox="0 0 24 24"><path d="M2 12C2 6.5 6.5 2 12 2a10 10 0 0 1 8 4"/><polyline points="20 2 20 6 16 6"/><path d="M22 12c0 5.5-4.5 10-10 10a10 10 0 0 1-8-4"/><polyline points="4 22 4 18 8 18"/></svg>
+      </span>
+      Гос волна
+    </div>
+
+    <div class="score-item">
+      <div class="score-top">
+        <span class="score-label">Гос волна <span class="pts">×30</span></span>
+        <input id="wave" type="number" value="0" min="0" oninput="clampAndCalc(this)">
+      </div>
+      <div class="proof-inline">
+        <span class="link-icon"><svg viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></span>
+        <input id="proof_wave" type="url" placeholder="Ссылка на доказательство">
+      </div>
     </div>
   </div>
 
@@ -593,57 +703,52 @@ h2 {
   <div class="block">
     <div class="block-title">
       <span class="icon-circle icon-pink">
-        <svg viewBox="0 0 24 24">
-          <circle cx="12" cy="12" r="10"/>
-          <line x1="12" y1="8" x2="12" y2="16"/>
-          <line x1="8" y1="12" x2="16" y2="12"/>
-        </svg>
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
       </span>
       Дополнительно
     </div>
-    <div class="extra-row">
-      <label>Доп. баллы</label>
-      <input id="extra" type="number" value="0" min="0" oninput="clampAndCalc(this)">
+
+    <div class="extra-item">
+      <div class="extra-top">
+        <label>Доп. баллы</label>
+        <input id="extra" type="number" value="0" min="0" oninput="clampAndCalc(this)">
+      </div>
+      <div class="proof-inline">
+        <span class="link-icon"><svg viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></span>
+        <input id="proof_extra" type="url" placeholder="Ссылка на доказательство">
+      </div>
     </div>
   </div>
 
-  <!-- PROGRESS BARS -->
+  <!-- PROGRESS -->
   <div class="progress-section">
     <div class="progress-item">
       <div class="progress-header">
         <span class="progress-name">🔍 Проверки</span>
         <span class="progress-val" id="prog_checks_val">0 / 2</span>
       </div>
-      <div class="progress-bar-bg">
-        <div class="progress-bar-fill bad" id="prog_checks_bar" style="width:0%"></div>
-      </div>
+      <div class="progress-bar-bg"><div class="progress-bar-fill bad" id="prog_checks_bar" style="width:0%"></div></div>
     </div>
     <div class="progress-item">
       <div class="progress-header">
         <span class="progress-name">🚑 ПМП</span>
         <span class="progress-val" id="prog_pmp_val">0 / 30</span>
       </div>
-      <div class="progress-bar-bg">
-        <div class="progress-bar-fill bad" id="prog_pmp_bar" style="width:0%"></div>
-      </div>
+      <div class="progress-bar-bg"><div class="progress-bar-fill bad" id="prog_pmp_bar" style="width:0%"></div></div>
     </div>
     <div class="progress-item">
       <div class="progress-header">
         <span class="progress-name">📋 Справки</span>
         <span class="progress-val" id="prog_sprav_val">0 / 50</span>
       </div>
-      <div class="progress-bar-bg">
-        <div class="progress-bar-fill bad" id="prog_sprav_bar" style="width:0%"></div>
-      </div>
+      <div class="progress-bar-bg"><div class="progress-bar-fill bad" id="prog_sprav_bar" style="width:0%"></div></div>
     </div>
     <div class="progress-item">
       <div class="progress-header">
         <span class="progress-name">⭐ Баллы</span>
         <span class="progress-val" id="prog_total_val">0 / 600</span>
       </div>
-      <div class="progress-bar-bg">
-        <div class="progress-bar-fill bad" id="prog_total_bar" style="width:0%"></div>
-      </div>
+      <div class="progress-bar-bg"><div class="progress-bar-fill bad" id="prog_total_bar" style="width:0%"></div></div>
     </div>
   </div>
 
@@ -654,180 +759,173 @@ h2 {
       <span class="total-value" id="totalDisplay">0</span>
     </div>
     <div id="normBadge" class="norm-badge norm-none">
-      <svg viewBox="0 0 24 24">
-        <circle cx="12" cy="12" r="10"/>
-        <line x1="8" y1="12" x2="16" y2="12"/>
-      </svg>
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
       <span id="normText">Заполните данные</span>
     </div>
   </div>
 
   <!-- SUBMIT -->
   <button class="btn-submit" id="btnSubmit" onclick="send()">
-    <svg viewBox="0 0 24 24">
-      <line x1="22" y1="2" x2="11" y2="13"/>
-      <polygon points="22 2 15 22 11 13 2 9 22 2"/>
-    </svg>
+    <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
     <span id="btnText">Отправить недельный отчёт</span>
     <div class="spinner" id="spinner"></div>
   </button>
 
 </div>
 
-<div class="toast" id="toast">
-  <span id="toastMsg"></span>
-</div>
+<div class="toast" id="toast"><span id="toastMsg"></span></div>
 
 <script>
 (function(){
-  var c = document.getElementById('particles');
-  for(var i = 0; i < 30; i++){
-    var p = document.createElement('div');
-    p.className = 'particle';
-    p.style.left = Math.random()*100 + '%';
-    p.style.animationDuration = (6 + Math.random()*10) + 's';
-    p.style.animationDelay = Math.random()*8 + 's';
-    p.style.width = p.style.height = (2 + Math.random()*4) + 'px';
+  var c=document.getElementById('particles');
+  for(var i=0;i<30;i++){
+    var p=document.createElement('div');
+    p.className='particle';
+    p.style.left=Math.random()*100+'%';
+    p.style.animationDuration=(6+Math.random()*10)+'s';
+    p.style.animationDelay=Math.random()*8+'s';
+    p.style.width=p.style.height=(2+Math.random()*4)+'px';
     c.appendChild(p);
   }
 })();
 
 function val(id){
-  var v = Number(document.getElementById(id).value) || 0;
-  return v < 0 ? 0 : v;
+  var v=Number(document.getElementById(id).value)||0;
+  return v<0?0:v;
 }
 
 function clampAndCalc(el){
-  if(el.value === '' || el.value === '-'){ el.value = 0; }
-  if(Number(el.value) < 0) el.value = 0;
+  if(el.value===''||el.value==='-'){el.value=0;}
+  if(Number(el.value)<0)el.value=0;
   calc();
 }
 
-function updateProgress(barId, valId, current, required){
-  var pct = Math.min((current / required) * 100, 100);
-  var bar = document.getElementById(barId);
-  var valEl = document.getElementById(valId);
-  bar.style.width = pct + '%';
-  valEl.innerText = current + ' / ' + required;
-  bar.className = 'progress-bar-fill ' + (pct >= 100 ? 'ok' : (pct >= 50 ? 'mid' : 'bad'));
+function updateProgress(barId,valId,current,required){
+  var pct=Math.min((current/required)*100,100);
+  document.getElementById(barId).style.width=pct+'%';
+  document.getElementById(valId).innerText=current+' / '+required;
+  document.getElementById(barId).className='progress-bar-fill '+(pct>=100?'ok':(pct>=50?'mid':'bad'));
 }
 
 function calc(){
-  var total = 0;
-  total += val('t1')*1;   total += val('t2')*2;
-  total += val('v1')*2;   total += val('v2')*4;
-  total += val('p1')*3;   total += val('p2')*5;
-  total += val('s1')*4;   total += val('s2')*5;
-  total += val('psy')*60;
-  total += val('d1')*40;  total += val('d2')*52;
-  total += val('c1')*50;  total += val('c2')*100;
-  total += val('wave')*30;
-  total += val('extra')*1;
+  var total=0;
+  total+=val('t1')*1;  total+=val('t2')*2;
+  total+=val('v1')*2;  total+=val('v2')*4;
+  total+=val('p1')*3;  total+=val('p2')*5;
+  total+=val('s1')*4;  total+=val('s2')*5;
+  total+=val('psy')*60;
+  total+=val('d1')*40; total+=val('d2')*52;
+  total+=val('c1')*50; total+=val('c2')*100;
+  total+=val('wave')*30;
+  total+=val('extra')*1;
 
-  document.getElementById('totalDisplay').innerText = total;
+  document.getElementById('totalDisplay').innerText=total;
 
-  var checks  = val('c1') + val('c2');
-  var pmp     = val('p1') + val('p2');
-  var spravki = val('s1') + val('s2');
+  var checks=val('c1')+val('c2');
+  var pmp=val('p1')+val('p2');
+  var spravki=val('s1')+val('s2');
 
-  updateProgress('prog_checks_bar', 'prog_checks_val', checks, 2);
-  updateProgress('prog_pmp_bar',    'prog_pmp_val',    pmp, 30);
-  updateProgress('prog_sprav_bar',  'prog_sprav_val',  spravki, 50);
-  updateProgress('prog_total_bar',  'prog_total_val',  total, 600);
+  updateProgress('prog_checks_bar','prog_checks_val',checks,2);
+  updateProgress('prog_pmp_bar','prog_pmp_val',pmp,30);
+  updateProgress('prog_sprav_bar','prog_sprav_val',spravki,50);
+  updateProgress('prog_total_bar','prog_total_val',total,600);
 
-  var ok = checks >= 2 && pmp >= 30 && spravki >= 50 && total >= 600;
-  var badge = document.getElementById('normBadge');
+  var ok=checks>=2&&pmp>=30&&spravki>=50&&total>=600;
+  var badge=document.getElementById('normBadge');
 
   if(ok){
-    badge.className = 'norm-badge norm-ok';
-    badge.innerHTML =
-      '<svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>' +
+    badge.className='norm-badge norm-ok';
+    badge.innerHTML=
+      '<svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>'+
       '<span id="normText">Нормы выполнены</span>';
-  } else {
-    badge.className = 'norm-badge norm-bad';
-    badge.innerHTML =
-      '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>' +
+  }else{
+    badge.className='norm-badge norm-bad';
+    badge.innerHTML=
+      '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>'+
       '<span id="normText">Нормы не выполнены</span>';
   }
 }
 
-function showToast(msg, type){
-  var t = document.getElementById('toast');
-  t.className = 'toast toast-' + type;
-  document.getElementById('toastMsg').innerText = msg;
+function showToast(msg,type){
+  var t=document.getElementById('toast');
+  t.className='toast toast-'+type;
+  document.getElementById('toastMsg').innerText=msg;
   t.classList.add('show');
-  setTimeout(function(){ t.classList.remove('show'); }, 3500);
+  setTimeout(function(){t.classList.remove('show');},3500);
 }
 
+function gp(id){return(document.getElementById(id).value||"").trim();}
+
 function send(){
-  var nameVal      = document.getElementById('inp_name').value.trim();
-  var staticVal    = document.getElementById('inp_static').value.trim();
-  var discordIdVal = document.getElementById('inp_discord_id').value.trim();
+  var nameVal=document.getElementById('inp_name').value.trim();
+  var staticVal=document.getElementById('inp_static').value.trim();
+  var discordIdVal=document.getElementById('inp_discord_id').value.trim();
 
-  if(!nameVal || !staticVal || !discordIdVal){
-    showToast('Заполните все личные данные!', 'error');
-    return;
+  if(!nameVal||!staticVal||!discordIdVal){
+    showToast('Заполните все личные данные!','error');return;
   }
-
   if(!/^\d{17,20}$/.test(discordIdVal)){
-    showToast('Discord ID — 17-20 цифр. Проверьте!', 'error');
-    return;
+    showToast('Discord ID — 17-20 цифр. Проверьте!','error');return;
   }
 
-  var normEl  = document.getElementById('normText');
-  var normVal = normEl ? normEl.innerText : '—';
+  var normEl=document.getElementById('normText');
+  var normVal=normEl?normEl.innerText:'—';
 
-  var data = {
-    name:       nameVal,
-    staticVal:  staticVal,
-    discordId:  discordIdVal,
-    t1: val('t1'), t2: val('t2'),
-    v1: val('v1'), v2: val('v2'),
-    p1: val('p1'), p2: val('p2'),
-    s1: val('s1'), s2: val('s2'),
-    psy: val('psy'),
-    d1: val('d1'), d2: val('d2'),
-    c1: val('c1'), c2: val('c2'),
-    wave: val('wave'),
-    extra: val('extra'),
-    total:      document.getElementById('totalDisplay').innerText,
-    normStatus: normVal
+  var data={
+    name:nameVal, staticVal:staticVal, discordId:discordIdVal,
+    t1:val('t1'), t2:val('t2'),
+    v1:val('v1'), v2:val('v2'),
+    p1:val('p1'), p2:val('p2'),
+    s1:val('s1'), s2:val('s2'),
+    psy:val('psy'),
+    d1:val('d1'), d2:val('d2'),
+    c1:val('c1'), c2:val('c2'),
+    wave:val('wave'), extra:val('extra'),
+    total:document.getElementById('totalDisplay').innerText,
+    normStatus:normVal,
+    proofT1:gp('proof_t1'), proofT2:gp('proof_t2'),
+    proofV1:gp('proof_v1'), proofV2:gp('proof_v2'),
+    proofP1:gp('proof_p1'), proofP2:gp('proof_p2'),
+    proofS1:gp('proof_s1'), proofS2:gp('proof_s2'),
+    proofPsy:gp('proof_psy'),
+    proofD1:gp('proof_d1'), proofD2:gp('proof_d2'),
+    proofC1:gp('proof_c1'), proofC2:gp('proof_c2'),
+    proofWave:gp('proof_wave'), proofExtra:gp('proof_extra')
   };
 
-  var btn     = document.getElementById('btnSubmit');
-  var btnText = document.getElementById('btnText');
-  var spinner = document.getElementById('spinner');
+  var btn=document.getElementById('btnSubmit');
+  var btnText=document.getElementById('btnText');
+  var spinner=document.getElementById('spinner');
 
-  btn.disabled          = true;
-  btnText.innerText     = 'Отправка...';
-  spinner.style.display = 'block';
+  btn.disabled=true;
+  btnText.innerText='Отправка...';
+  spinner.style.display='block';
 
   google.script.run
     .withSuccessHandler(function(){
-      btn.disabled          = false;
-      btnText.innerText     = 'Отправить недельный отчёт';
-      spinner.style.display = 'none';
-      showToast('Отчёт успешно отправлен!', 'success');
+      btn.disabled=false;
+      btnText.innerText='Отправить недельный отчёт';
+      spinner.style.display='none';
+      showToast('Отчёт успешно отправлен!','success');
     })
     .withFailureHandler(function(e){
-      btn.disabled          = false;
-      btnText.innerText     = 'Отправить недельный отчёт';
-      spinner.style.display = 'none';
-      showToast('Ошибка: ' + (e.message || e), 'error');
+      btn.disabled=false;
+      btnText.innerText='Отправить недельный отчёт';
+      spinner.style.display='none';
+      showToast('Ошибка: '+(e.message||e),'error');
     })
     .submitReport(data);
 }
 
-document.addEventListener('keydown', function(e){
-  if(e.target.type === 'number' && (e.key === '-' || e.key === 'e' || e.key === 'E')){
+document.addEventListener('keydown',function(e){
+  if(e.target.type==='number'&&(e.key==='-'||e.key==='e'||e.key==='E')){
     e.preventDefault();
   }
 });
-
-document.addEventListener('paste', function(e){
-  if(e.target.type === 'number'){
-    var text = (e.clipboardData || window.clipboardData).getData('text');
-    if(/[-eE]/.test(text)) e.preventDefault();
+document.addEventListener('paste',function(e){
+  if(e.target.type==='number'){
+    var text=(e.clipboardData||window.clipboardData).getData('text');
+    if(/[-eE]/.test(text))e.preventDefault();
   }
 });
 </script>
