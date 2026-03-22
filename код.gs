@@ -1,5 +1,5 @@
 const WEBHOOK = "https://discord.com/api/webhooks/1469647368621391913/Enz4RWQbIyr9Xvmroi2vPsqD_jU52Nize7d_HQLwZdSrCcHateDG577wZ0uGq9oIw9D6";
-const SHEET_ID = "1Uio02r-l23au8HclHr7VnUwa0bdXzUBRwSvy2JWInmk";
+const SHEET_ID = "1djm3JXVXFTuMb0JA5wD0X-5y-4TZfuFxUa2g3z3g_S0";
 
 function doGet() {
   return HtmlService.createHtmlOutputFromFile('Index')
@@ -21,13 +21,21 @@ function submitReport(data) {
   if (sheet.getLastRow() === 0) {
     sheet.appendRow([
       "Дата", "Имя", "Статик", "Discord ID",
-      "Табл ELSH", "Табл Sandy",
-      "Вакц ELSH", "Вакц Sandy",
-      "ПМП День", "ПМП Ночь",
-      "Справки ELSH", "Справки Sandy",
-      "Психолог", "Деж ELSH", "Деж Sandy",
-      "Участие пров", "Провед пров",
-      "Гос волна", "Доп баллы",
+      "Табл ELSH", "Док Табл ELSH",
+      "Табл Sandy", "Док Табл Sandy",
+      "Вакц ELSH", "Док Вакц ELSH",
+      "Вакц Sandy", "Док Вакц Sandy",
+      "ПМП День", "Док ПМП День",
+      "ПМП Ночь", "Док ПМП Ночь",
+      "Справки ELSH", "Док Справки ELSH",
+      "Справки Sandy", "Док Справки Sandy",
+      "Психолог", "Док Психолог",
+      "Деж ELSH", "Док Деж ELSH",
+      "Деж Sandy", "Док Деж Sandy",
+      "Участие пров", "Док Участие пров",
+      "Провед пров", "Док Провед пров",
+      "Гос волна", "Док Гос волна",
+      "Доп баллы", "Док Доп баллы",
       "Итого", "Статус норм"
     ]);
   }
@@ -35,13 +43,21 @@ function submitReport(data) {
   sheet.appendRow([
     new Date(),
     data.name, data.staticVal, data.discordId,
-    data.t1, data.t2,
-    data.v1, data.v2,
-    data.p1, data.p2,
-    data.s1, data.s2,
-    data.psy, data.d1, data.d2,
-    data.c1, data.c2,
-    data.wave, data.extra,
+    data.t1, data.proofT1,
+    data.t2, data.proofT2,
+    data.v1, data.proofV1,
+    data.v2, data.proofV2,
+    data.p1, data.proofP1,
+    data.p2, data.proofP2,
+    data.s1, data.proofS1,
+    data.s2, data.proofS2,
+    data.psy, data.proofPsy,
+    data.d1, data.proofD1,
+    data.d2, data.proofD2,
+    data.c1, data.proofC1,
+    data.c2, data.proofC2,
+    data.wave, data.proofWave,
+    data.extra, data.proofExtra,
     data.total, data.normStatus
   ]);
 
@@ -94,6 +110,50 @@ function submitReport(data) {
     return filled + empty + "  " + current + "/" + required + " (" + percent + "%)";
   }
 
+  function pf(url) {
+    if (!url || url.trim() === "") return " · ` нет `";
+    return " · [📎 док](" + url.trim() + ")";
+  }
+
+  function itemLine(emoji, label, count, mult, proofUrl) {
+    var score = count * mult;
+    if (count === 0 && (!proofUrl || proofUrl.trim() === "")) return "";
+    return emoji + " " + label + ": **" + count + "** шт → **" + score + "** б." + pf(proofUrl) + "\n";
+  }
+
+  // Собираем строки
+  var tabletsLines = "";
+  tabletsLines += itemLine("💊", "ELSH (×1)", t1, 1, data.proofT1);
+  tabletsLines += itemLine("💊", "Sandy (×2)", t2, 2, data.proofT2);
+
+  var vaccLines = "";
+  vaccLines += itemLine("💉", "ELSH (×2)", v1, 2, data.proofV1);
+  vaccLines += itemLine("💉", "Sandy (×4)", v2, 4, data.proofV2);
+
+  var pmpLines = "";
+  pmpLines += itemLine("🌞", "День (×3)", p1, 3, data.proofP1);
+  pmpLines += itemLine("🌙", "Ночь (×5)", p2, 5, data.proofP2);
+
+  var spravkiLines = "";
+  spravkiLines += itemLine("📋", "ELSH (×4)", s1, 4, data.proofS1);
+  spravkiLines += itemLine("📋", "Sandy (×5)", s2, 5, data.proofS2);
+
+  var psyLines = itemLine("🧠", "Психолог (×60)", psy, 60, data.proofPsy);
+
+  var dutyLines = "";
+  dutyLines += itemLine("🏥", "ELSH (×40)", d1, 40, data.proofD1);
+  dutyLines += itemLine("🏥", "Sandy (×52)", d2, 52, data.proofD2);
+
+  var checkLines = "";
+  checkLines += itemLine("🔍", "Участие (×50)", c1, 50, data.proofC1);
+  checkLines += itemLine("🔍", "Проведение (×100)", c2, 100, data.proofC2);
+
+  var waveLines = itemLine("🌊", "Гос волна (×30)", wave, 30, data.proofWave);
+  var extraLines = "";
+  if (extra > 0) {
+    extraLines = "➕ Доп. баллы: **" + extra + "** б." + pf(data.proofExtra) + "\n";
+  }
+
   var msg = {
     content: "# 📋 Новый недельный отчёт\n" +
              role1 + " " + role2 + "\n" +
@@ -103,63 +163,63 @@ function submitReport(data) {
         title: "👤 Информация о сотруднике",
         color: 5793266,
         fields: [
-          { name: "📛 Имя",        value: "```" + (data.name || "—") + "```",      inline: true },
-          { name: "🔢 Статик",     value: "```" + (data.staticVal || "—") + "```", inline: true },
-          { name: "💬 Discord",    value: userMention,                              inline: true }
+          { name: "📛 Имя",     value: "```" + (data.name || "—") + "```",      inline: true },
+          { name: "🔢 Статик",  value: "```" + (data.staticVal || "—") + "```", inline: true },
+          { name: "💬 Discord", value: userMention,                              inline: true }
         ]
       },
       {
-        title: "💊 Выдача таблеток  ·  " + tabletsScore + " баллов",
+        title: "💊 Выдача таблеток  ·  " + tabletsScore + " б.",
         color: 3066993,
-        fields: [
-          { name: "ELSH (×1)",  value: "```" + t1 + " шт → " + (t1 * 1) + " б.```",  inline: true },
-          { name: "Sandy (×2)", value: "```" + t2 + " шт → " + (t2 * 2) + " б.```",  inline: true }
-        ]
+        description: tabletsLines || "` Нет данных `"
       },
       {
-        title: "💉 Вакцинация  ·  " + vaccScore + " баллов",
+        title: "💉 Вакцинация  ·  " + vaccScore + " б.",
         color: 3447003,
-        fields: [
-          { name: "ELSH (×2)",  value: "```" + v1 + " шт → " + (v1 * 2) + " б.```",  inline: true },
-          { name: "Sandy (×4)", value: "```" + v2 + " шт → " + (v2 * 4) + " б.```",  inline: true }
-        ]
+        description: vaccLines || "` Нет данных `"
       },
       {
-        title: "🚑 ПМП  ·  " + pmpScore + " баллов",
+        title: "🚑 ПМП  ·  " + pmpScore + " б.  (" + totalPmp + " из 30)",
         color: 15844367,
-        fields: [
-          { name: "День (×3)",  value: "```" + p1 + " шт → " + (p1 * 3) + " б.```", inline: true },
-          { name: "Ночь (×5)",  value: "```" + p2 + " шт → " + (p2 * 5) + " б.```", inline: true },
-          { name: "Всего ПМП",  value: "```" + totalPmp + " из 30```",               inline: true }
-        ]
+        description: pmpLines || "` Нет данных `"
       },
       {
-        title: "📄 PSED  ·  " + (spravkiScore + psyScore + dutyScore + checkScore + waveScore) + " баллов",
+        title: "📄 Справки  ·  " + spravkiScore + " б.  (" + totalSpravki + " из 50)",
         color: 10181046,
-        fields: [
-          { name: "📋 Справки ELSH (×4)",          value: "```" + s1 + " шт → " + (s1 * 4) + " б.```",    inline: true },
-          { name: "📋 Справки Sandy (×5)",         value: "```" + s2 + " шт → " + (s2 * 5) + " б.```",    inline: true },
-          { name: "📊 Всего справок",              value: "```" + totalSpravki + " из 50```",               inline: true },
-          { name: "🧠 Психолог (×60)",             value: "```" + psy + " шт → " + psyScore + " б.```",   inline: true },
-          { name: "🏥 Дежурство ELSH (×40)",       value: "```" + d1 + " шт → " + (d1 * 40) + " б.```",   inline: true },
-          { name: "🏥 Дежурство Sandy (×52)",      value: "```" + d2 + " шт → " + (d2 * 52) + " б.```",   inline: true },
-          { name: "🔍 Участие проверка (×50)",     value: "```" + c1 + " шт → " + (c1 * 50) + " б.```",   inline: true },
-          { name: "🔍 Проведение проверка (×100)", value: "```" + c2 + " шт → " + (c2 * 100) + " б.```",  inline: true },
-          { name: "🌊 Гос волна (×30)",            value: "```" + wave + " шт → " + waveScore + " б.```",  inline: true }
-        ]
+        description: spravkiLines || "` Нет данных `"
+      },
+      {
+        title: "🧠 Психолог  ·  " + psyScore + " б.",
+        color: 15277667,
+        description: psyLines || "` Нет данных `"
+      },
+      {
+        title: "🏥 Дежурство  ·  " + dutyScore + " б.",
+        color: 16750848,
+        description: dutyLines || "` Нет данных `"
+      },
+      {
+        title: "🔍 Проверки  ·  " + checkScore + " б.  (" + totalChecks + " из 2)",
+        color: 3447003,
+        description: checkLines || "` Нет данных `"
+      },
+      {
+        title: "🌊 Гос волна  ·  " + waveScore + " б.",
+        color: 1752220,
+        description: (waveLines || "` Нет данных `") + (extraLines ? "\n" + extraLines : "")
       },
       {
         title: normIcon + " Итоговый результат",
         color: normColor,
         fields: [
-          { name: "🏆 Общий балл",   value: "```fix\n" + total + " баллов\n```", inline: true },
-          { name: "➕ Доп. баллы",    value: "```" + extra + "```",               inline: true },
-          { name: "📊 Статус",        value: "```" + (data.normStatus || "—") + "```", inline: true },
-          { name: "\u200b",           value: "**Прогресс выполнения норм:**",     inline: false },
-          { name: "🔍 Проверки (≥2)", value: progressBar(totalChecks, 2),          inline: false },
-          { name: "🚑 ПМП (≥30)",    value: progressBar(totalPmp, 30),            inline: false },
-          { name: "📋 Справки (≥50)", value: progressBar(totalSpravki, 50),        inline: false },
-          { name: "⭐ Баллы (≥600)",  value: progressBar(total, 600),              inline: false }
+          { name: "🏆 Общий балл", value: "```fix\n" + total + " баллов\n```",            inline: true },
+          { name: "➕ Доп. баллы",  value: "```" + extra + "```",                          inline: true },
+          { name: "📊 Статус",      value: "```" + (data.normStatus || "—") + "```",       inline: true },
+          { name: "\u200b",         value: "**Прогресс выполнения норм:**",                inline: false },
+          { name: "🔍 Проверки (≥2)", value: progressBar(totalChecks, 2),                  inline: false },
+          { name: "🚑 ПМП (≥30)",    value: progressBar(totalPmp, 30),                    inline: false },
+          { name: "📋 Справки (≥50)", value: progressBar(totalSpravki, 50),                inline: false },
+          { name: "⭐ Баллы (≥600)",  value: progressBar(total, 600),                      inline: false }
         ],
         footer: { text: "PSED Report System" },
         timestamp: new Date().toISOString()
